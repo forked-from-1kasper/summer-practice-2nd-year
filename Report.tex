@@ -102,7 +102,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 Точку $x$ множества $A \subseteq \R$ назовём {\bf предельной,} если в любой окрестности этой точки существует хотя бы одна точка из $A$, не совпадающая с $x$.
 
 Точку множества $A \subseteq \R$ назовём {\bf граничной,} если в любой её окрестности находятся точки, как принадлежащие $A$, так и не принадлежащие $A$.
-Множество всех граничных точек называется {\bf границей} и обозначается $\partial A$.
+Множество всех граничных точек называется {\bf границей} и обозначается $\partial A$. Эквивалентно,
+\begin{equation*}
+  x \in \partial A \Leftrightarrow\ \forall \varepsilon > 0: \exists y \in A, y^\prime \in \R \setminus A: |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon
+\end{equation*}
 
 Объединение множества $A$ со множеством всех его предельных точек называется {\bf замыканием} и обозначается $\overline{A}$.
 
@@ -111,7 +114,6 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 {\bf Числовой последовательностью} назовём всякую функцию $f : \N \rightarrow \R$.
 
 Будем говорить, что число $A \in \R$ является {\bf пределом последовательности} $f$, если выполняется
-
 \begin{equation*}
   \forall \varepsilon > 0: \exists N \in \N: \forall n \geq N : |f(n) - A| \leq \varepsilon
 \end{equation*}
@@ -121,7 +123,6 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 Последовательность, у которой существует предел, назовём {\bf сходящейся.}
 
 Если $g : \N \rightarrow \N$ — строго возрастающая последовательность, то есть для неё выполняется
-
 \begin{equation*}
   \forall n, m: n < m \Rightarrow g(n) < g(m),
 \end{equation*}
@@ -197,6 +198,20 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   блаблабла
 \end{proof}
 
+\begin{lemma*}
+  Для всякого $A \subseteq \R$ верно $\partial A = \partial (\R \setminus A)$.
+\end{lemma*}
+
+\begin{proof}
+Действительно,
+\begin{align*}
+  & x \in \partial A \\
+  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y \in A, y^\prime \in \R \setminus A: |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon \\
+  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y^\prime \in \R \setminus A, y \in A: |x - y^\prime| < \varepsilon \land |x - y| < \varepsilon \\
+  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y \in \R \setminus A, y^\prime \in \R \setminus (\R \setminus A): |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon \\
+  \Leftrightarrow\ & x \in \partial (\R \setminus A)
+\end{align*}
+\end{proof}
 
 \begin{theorem*}
   Множество всех предельных точек последовательности замкнуто.
@@ -206,12 +221,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   блаблабла
 \end{proof}
 
-
 \section{Построение искомой последовательности}
 
 Пусть дано некоторое замкнутое множество $A \subseteq \R$. Тогда множества $\Int(A)$ и $\R \setminus A$ открыты,
 потому представимы как объединение не более чем счётного числа непересекающихся интервалов:
-
 \begin{equation*}
   \Int(A) = \bigcup\limits_{i \in I}\ (x_i, y_i),\ \R \setminus A = \bigcup\limits_{j \in J}\ (x^\prime_j, y^\prime_j),\ 
 \end{equation*}
@@ -275,6 +288,18 @@ $(b_j \circ f)^{-1}(x^\prime_j)$ и $(b_j \circ f)^{-1}(y^\prime_j)$ однов�
 и, очевидно, $\underset{n \rightarrow + \infty}{\lim} (r - q_0/n) = \underset{n \rightarrow + \infty}{\lim} (r + q_0/n) = r$,
 то, по теореме о двух милиционерах, имеем $\underset{n \rightarrow + \infty}{\lim} q_n = \underset{n \rightarrow + \infty}{\lim} a_i(k_n) = r$, что и требовалось.
 
+\end{proof}
+
+\begin{lemma*}
+  $ \partial A = \bigcup\limits_{j \in J} \{ x^\prime_j, y^\prime_j \} $
+\end{lemma*}
+
+\begin{proof}
+Поскольку интервалы $(x^\prime_j, y^\prime_j)$ попарно не пересекаются, получаем:
+\begin{equation*}
+  \partial A = \partial (\R \setminus A) = \partial \left( \bigcup\limits_{j \in J}\ (x^\prime_j, y^\prime_j) \right) =
+  \bigcup\limits_{j \in J}\ \partial(x^\prime_j, y^\prime_j) = \bigcup\limits_{j \in J} \{ x^\prime_j, y^\prime_j \}
+\end{equation*}
 \end{proof}
 
 \end{document}
