@@ -78,6 +78,10 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\card}{\mathrm{card}}
 \newcommand{\Int}{\mathrm{Int}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Lim}{\mathrm{Lim}}
+\newcommand{\I}{\mathrm{I}}
+\newcommand{\D}{\mathrm{D}}
 
 \section{Основные определения}
 
@@ -90,22 +94,10 @@
 $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \}$) и $\card(X)$ для мощности множества.
 
 Множество {\bf счётно,} если его мощность не превышает мощность множества натуральных чисел $\N$.
+Сопоставим каждому счётному множеству $A$ некоторую биекцию его с $\N$  и обозначим её $\kappa_A : \N \rightarrow A$.
 
-Точку $x$ множества $A \subseteq \R$ назовём {\bf внутренней,} если $\exists \varepsilon > 0: \forall y: |x - y| < \varepsilon \Rightarrow y \in A$,
-то есть если она входит во множество $A$ вместе с некоторой окрестностью.
-
-Множество внутренних точек множества $A$ назовём его {\bf внутренностью} и обозначим как $\Int(A)$.
-
-Множество $A$ назовём {\bf открытым,} если все его точки внутренние или, что то же самое, если оно совпадает со своей внутренностью.
-Очевидно, $\Int(A)$ всегда открыто.
-
-Точку $x$ множества $A \subseteq \R$ назовём {\bf предельной,} если в любой окрестности этой точки существует хотя бы одна точка из $A$, не совпадающая с $x$.
-
-Точку множества $A \subseteq \R$ назовём {\bf граничной,} если в любой её окрестности находятся точки, как принадлежащие $A$, так и не принадлежащие $A$.
-Множество всех граничных точек называется {\bf границей} и обозначается $\partial A$. Эквивалентно,
-\begin{equation*}
-  x \in \partial A \Leftrightarrow\ \forall \varepsilon > 0: \exists y \in A, y^\prime \in \R \setminus A: |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon
-\end{equation*}
+Точку $x$ множества $A \subseteq \R$ назовём {\bf предельной,} если в любой окрестности этой точки
+существует хотя бы одна точка из $A$, не совпадающая с $x$. Множество всех предельных точек обозначим как $\Lim(A)$.
 
 Объединение множества $A$ со множеством всех его предельных точек называется {\bf замыканием} и обозначается $\overline{A}$.
 
@@ -134,60 +126,22 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 то последовательность $f \circ g$ называется {\bf подпоследовательностью} последовательности $f$.
 
 {\bf Предельной точкой последовательности} называется предел любой её подпоследовательности, если таковой существует.
+По аналогии со множествами, множество предельных точек последовательности $f$ обозначим как $\Lim(f)$.
 
-блаблабла
+Обратите внимание на то, что, в общем случае, $\Lim(f) \neq \Lim(f(\N))$ (например, если $f = (n \mapsto c)$ для некоторой константы $c \in \R$).
 
 \section{Некоторые вспомогательные утверждения}
 
-блаблабла
+\begin{theorem*}
+  $\N \times \N$ счётно.
+\end{theorem*}
+
+\begin{proof}
+  блаблабла
+\end{proof}
 
 \begin{theorem*}
   $\Q$ счётно.
-\end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{theorem*}
-  Если последовательность сходится, то все её подпоследовательности сходятся к тому же числу
-\end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{consequence*}
-  Если последовательность имеет две подпоследовательности с различными пределами, она расходится.
-\end{consequence*}
-
-\begin{theorem*}
-  Пусть $f : \N \rightarrow \R$ и $k \in \N$. Если $f \circ (n \mapsto n + k)$ сходится, то $f$ сходится к тому же числу.
-\end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{theorem*}
-  Множество открыто тогда и только тогда, когда замкнуто его дополнение.
-\end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{consequence*}
-  Множество замкнуто тогда и только тогда, когда открыто его дополнение.
-\end{consequence*}
-
-\begin{proof}
-  Действительно, $A = \R \setminus (\R \setminus A)$. Однако, по предыдущей теореме,
-  $A = \R \setminus (\R \setminus A)$ замкнуто тогда и только тогда, когда открыто $\R \setminus A$.
-\end{proof}
-
-\begin{theorem*}
-  Всякое открытое в $\R$ множество представимо как объединение не более чем счётного числа непересекающихся интервалов.
 \end{theorem*}
 
 \begin{proof}
@@ -205,32 +159,14 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \begin{theorem*}
   Всякое $A \subseteq \R$ сепарабельно.
 \end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
+Каждому $A$ сопоставим некоторое счётное плотное подмножество и обозначим его $\D(A)$.
 
 \begin{theorem*}
-  Для всякого $A \subseteq \R$ верно $\overline{A} = \partial A \cup \Int(A) $.
+  Для любой $f : \N \rightarrow A$ верно $\Lim(f) \subseteq \overline{A}$.
 \end{theorem*}
 
 \begin{proof}
   блаблабла
-\end{proof}
-
-\begin{lemma*}
-  Для всякого $A \subseteq \R$ верно $\partial A = \partial (\R \setminus A)$.
-\end{lemma*}
-
-\begin{proof}
-Действительно,
-\begin{align*}
-  & x \in \partial A \\
-  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y \in A, y^\prime \in \R \setminus A: |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon \\
-  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y^\prime \in \R \setminus A, y \in A: |x - y^\prime| < \varepsilon \land |x - y| < \varepsilon \\
-  \Leftrightarrow\ & \forall \varepsilon > 0: \exists y \in \R \setminus A, y^\prime \in \R \setminus (\R \setminus A): |x - y| < \varepsilon \land |x - y^\prime| < \varepsilon \\
-  \Leftrightarrow\ & x \in \partial (\R \setminus A)
-\end{align*}
 \end{proof}
 
 \begin{theorem*}
@@ -241,77 +177,99 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   блаблабла
 \end{proof}
 
+Из последнего утверждения следует, что множеством предельных точек последовательности не может быть произвольное множество.
+Однако мы докажем, что таким множеством может быть произвольное {\it замкнутое} множество.
+
+\section{Некоторые вспомогательные конструкции}
+
+Обозначим $\id = (n \mapsto n)$.
+
+\begin{theorem*}
+  $ \Lim(\id) = \varnothing $
+\end{theorem*}
+
+\begin{proof}
+  блаблабла
+\end{proof}
+
+Пусть даны $m$ различных вещественных чисел $a_0, a_1, ..., a_m$. Обозначим
+\begin{equation*}
+  \omega(a_0, a_1, ..., a_m) = \left( n \mapsto a_{n\ \mathrm{mod}\ (m + 1)} \right)
+\end{equation*}
+
+\begin{theorem*}
+  $ \Lim(\omega(a_0, a_1, ..., a_m)) = \{ a_0, a_1, ..., a_m \} $
+\end{theorem*}
+
+\begin{proof}
+Из ??? следует $ \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \} $.
+
+Докажем $ \{ a_0, a_1, ..., a_m \} \subseteq \Lim(\omega(a_0, a_1, ..., a_m)) $.
+Возьмём некоторое $a_i$, тогда
+\begin{equation*}
+  \underset{n \rightarrow + \infty}{\lim} \omega(n(m + 1) + i) = \underset{n \rightarrow + \infty}{\lim} a_i = a_i
+\end{equation*}
+Следовательно, $\omega \circ (n \mapsto n(m + 1) + i)$ — искомая подпоследовательность.
+\end{proof}
+
+Обозначим последовательность $\{0, 0, 1, 0, 1, 2, ..., 0, 1, ..., n, 0, 1, ..., n, n + 1, ...\}$ как $\phi : \N \rightarrow \N$.
+
+Заметим, что
+\begin{equation*}
+  \phi \left( j + \frac{i(i + 1)}{2} \right) = \phi(0 + 1 + 2 + ... + i + j) = j,
+\end{equation*}
+если $j \leq i$.
+
+\begin{theorem*}
+  Пусть $A \subseteq \R$ — некоторое счётное множество. Тогда $\Lim(\kappa_A \circ \phi) = \overline{A} $
+\end{theorem*}
+
+\begin{proof}
+Поскольку $\kappa_A(\phi(n)) \in A$, из ??? получаем, что $\Lim(\kappa_A \circ \phi) \subseteq \overline{A}$.
+
+Обратно, пусть $r \in \overline{A}$. Обозначим $k = \kappa_A^{-1}(r)$. Тогда:
+\begin{align*}
+   \ & \kappa_A \circ \phi \circ (n \mapsto k + (n + k)(n + k + 1)/2) \\
+  =\ & (n \mapsto \kappa_A(\phi(k + (n + k)(n + k + 1)/2))) \\
+  =\ & (n \mapsto \kappa_A(k))\ (\text{поскольку } k \leq n + k) \\
+  =\ & (n \mapsto \kappa_A(\kappa_A^{-1}(r))) \\
+  =\ & (n \mapsto r)
+\end{align*}
+Получили постоянную последовательность с пределом $r$.
+
+Пусть $r \in \Lim(A)$. Тогда существует последовательность $g : \N \rightarrow A$, сходящаяся к $r$.
+Обозначим $k_n = \kappa_A^{-1}(g(n))$ и $k^\prime_n = k_0 + k_1 + ... + k_n$. Аналогично получаем:
+\begin{align*}
+   \ & \kappa_A \circ \phi \circ (n \mapsto k_n + k^\prime_n(k^\prime_n + 1)/2) \\
+  =\ & (n \mapsto \kappa_A(\phi(k_n + k^\prime_n(k^\prime_n + 1)/2))) \\
+  =\ & (n \mapsto \kappa_A(k_n)) \\
+  =\ & (n \mapsto \kappa_A(\kappa_A^{-1}(g(n)))) \\
+  =\ & (n \mapsto g(n)) \\
+  =\ & g
+\end{align*}
+
+\end{proof}
+
 \section{Построение искомой последовательности}
 
-Пусть дано некоторое замкнутое множество $A \subseteq \R$. Тогда множества $\Int(A)$ и $\R \setminus A$ открыты,
-потому представимы как объединение не более чем счётного числа непересекающихся интервалов:
+Пусть дано некоторое замкнутое множество $A \subseteq \R$. Построим искомую последовательность $c : \N \rightarrow \R$ следующим образом:
 \begin{equation*}
-  \Int(A) = \bigcup\limits_{i \in I}\ (x_i, y_i),\ \R \setminus A = \bigcup\limits_{j \in J}\ (x^\prime_j, y^\prime_j),\ 
-\end{equation*}
-где $I \cap J = \varnothing$, $\card(I),\ \card(J) \leq \card(\N)$, $(x_{i_1}, y_{i_1}) \cap (x_{i_2}, y_{i_2}) = \varnothing \Leftrightarrow i_1 \neq i_2$
-и, аналогично, $(x^\prime_{j_1}, y^\prime_{j_1}) \cap (x^\prime_{j_2}, y^\prime_{j_2}) = \varnothing \Leftrightarrow j_1 \neq j_2$.
-
-Кроме того, считаем, что $x_i \neq y_i$ и $x^\prime_j \neq y^\prime_j$.
-
-Для каждого индекса $j \in J$ определим последовательность
-\begin{equation*}
-  b_j = n \mapsto
+  c =
   \begin{cases}
-    x^\prime_j, & n\ \text{чётно}; \\
-    y^\prime_j, & n\ \text{нечётно}.
+    \id, & A = \varnothing, \\
+    \omega(a_0, a_1, ..., a_m), & A = \{a_0, a_1, ..., a_m\}, \\
+    \kappa_{\D(A)} \circ \phi, & \text{A бесконечно}.
   \end{cases}
 \end{equation*}
 
-Далее, поскольку множество рациональных чисел счётно, выполняется
-\begin{equation*}
-  \card((x_i, y_i)\ \cap\ \Q) \leq \card(\Q) = \card(\N),
-\end{equation*}
-но, с другой стороны, поскольку интервал $(x_i, y_i)$ непуст, множество $(x_i, y_i)\ \cap\ \Q$ бесконечно.
-Следовательно, $\card((x_i, y_i)\ \cap\ \Q) = \card(\N)$, то есть существует биекция $ a_i : \N \rightarrow (x_i, y_i) \cap \Q $ для каждого $i \in I$.
+Более того, если $A \neq \varnothing$, то, по построению, $c(\N) \subseteq A$.
 
-\begin{lemma*}
-  Предельными точами последовательности $b_j$ являются только точки $x^\prime_j$ и $y^\prime_j$. 
-\end{lemma*}
+\begin{theorem*}
+  $\Lim(c) = A$
+\end{theorem*}
 
 \begin{proof}
-Рассмотрим произвольную подпоследовательность $b_j \circ f$ последовательности $b_j$.
-Поскольку $\N$ бесконечно и $b_j(f(\N)) \subseteq \{x^\prime_j, y^\prime_j\}$ (по заданию $b_j$),
-$(b_j \circ f)^{-1}(x^\prime_j)$ и $(b_j \circ f)^{-1}(y^\prime_j)$ одновременно не могут быть конечными.
-
-Пусть конечно лишь второе множество. Тогда, отбрасывая достаточное число членов последовательности,
-получим постоянную последовательность с пределом $x^\prime_j$. Так как конечное число членов последовательности
-не влияют на предел, и исходная последовательность имеет пределом точку $x^\prime_j$.
-Аналогичен случай, когда конечно лишь первое множество. Пусть теперь оба множества бесконечны.
-В этом случае у $b_j \circ f$ существуют две различные (постоянные) подпоследовательности, потому она предела не имеет.
-\end{proof}
-
-\begin{lemma*}
-  Множество предельных точек последовательности $a_i$ совпадает с интервалом $[x_i, y_i]$.
-\end{lemma*}
-
-\begin{proof}
-Пусть $r \in [x_i, y_i]$. Индуктивно построим искомую подпоследовательность.
-Возьмём некоторое рациональное число $q_0$ из множества $[x_i, y_i] \setminus \{ r \}$.
-Поскольку $a_i$ биективно, числу $q_0$ соответствует некоторое натуральное число $k_0$ такое, что $a_i(k_0) = q_0$.
-
-Рассмотрим проколотую окрестность $(r - q_0; r + q_0) \cap [x_i, y_i] \setminus \{ r \}$. Снова в силу того, что $a_i$ — биекция, в этой окрестности
-может содержаться лишь конечное число рациональных точек $q$ таких, что $a_i^{-1}(q) \leq k_0$. Исключая их, выберем в этой окрестности следующую точку $q_1 \in \Q$
-с соответствующим номером $k_1 = a_i^{-1}(q_1)$.
-
-Далее рассмотрим окрестность $(r - q_0/2; r + q_0) \cap [x_i, y_i] \setminus \{ r \}$. Исключим из неё все рациональные точки $q$ такие,
-что $a_i^{-1}(q) \leq \mathrm{max}\{k_0, k_1\}$ (то есть, в частности, и само $q_1$).
-
-Аналогичным образом выбирая далее точки в окрестностях $(r - q_0/n; r + q_0/n) \cap [x_i, y_i] \setminus \{ r \}$,
-получим некоторую строго возрастающую последовательность номеров $k_0 < k_1 < k_2 < ... < k_n < ...$.
-
-Поскольку для $n \geq 2$ выполняется $q_{n-1} \in (r - q_0/n; r + q_0/n)$, то есть $r - q_0/n < q_{n-1} < r + q_0/n$,
-и, очевидно, $\underset{n \rightarrow + \infty}{\lim} (r - q_0/n) = \underset{n \rightarrow + \infty}{\lim} (r + q_0/n) = r$,
-то, по теореме о двух милиционерах, имеем $\underset{n \rightarrow + \infty}{\lim} q_n = \underset{n \rightarrow + \infty}{\lim} a_i(k_n) = r$, что и требовалось.
-
-Обратно, пусть $r$ — предельная точка $a_i$. Следовательно, существует подпоследовательность $a_i \circ f$ такая,
-что $\underset{n \rightarrow + \infty}{\lim} a_i(f(n)) = r$. Однако, по заданию, $x_i \leq a_i(f(n)) \leq y_i$.
-Переходя к пределу, получим, что $x_i \leq r \leq y_i$, то есть $r \in [x_i, y_i]$.
-
+Следует из теорем ???, ???, ??? и того, что $\D(A)$ плотно в $A$.
 \end{proof}
 
 \end{document}
