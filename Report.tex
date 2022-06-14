@@ -161,9 +161,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem*}
 Каждому $A$ сопоставим некоторое счётное плотное подмножество и обозначим его $\D(A)$.
 
-\begin{theorem*}
+\begin{theorem}
+  \label{lim-f-subset-clos-A}
   Для любой $f : \N \rightarrow A$ верно $\Lim(f) \subseteq \overline{A}$.
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
   блаблабла
@@ -184,9 +185,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 
 Обозначим $\id = (n \mapsto n)$.
 
-\begin{theorem*}
+\begin{theorem}
+  \label{lim-idfun-eq-empty}
   $ \Lim(\id) = \varnothing $
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
   блаблабла
@@ -197,12 +199,13 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   \omega(a_0, a_1, ..., a_m) = \left( n \mapsto a_{n\ \mathrm{mod}\ (m + 1)} \right)
 \end{equation*}
 
-\begin{theorem*}
+\begin{theorem}
+  \label{lim-omega-eq-ai}
   $ \Lim(\omega(a_0, a_1, ..., a_m)) = \{ a_0, a_1, ..., a_m \} $
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
-Из ??? следует $ \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \} $.
+Из теоремы \ref{lim-f-subset-clos-A} следует $ \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \} $.
 
 Докажем $ \{ a_0, a_1, ..., a_m \} \subseteq \Lim(\omega(a_0, a_1, ..., a_m)) $.
 Возьмём некоторое $a_i$, тогда
@@ -220,9 +223,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{equation*}
 если $j \leq i$.
 
-\begin{theorem*}
+\begin{theorem}
+  \label{kappa-comp-phi-eq-A}
   Пусть $A \subseteq \R$ — некоторое счётное множество. Тогда $\Lim(\kappa_A \circ \phi) = \overline{A} $
-\end{theorem*}
+\end{theorem}
 
 \begin{proof}
 Поскольку $\kappa_A(\phi(n)) \in A$, из ??? получаем, что $\Lim(\kappa_A \circ \phi) \subseteq \overline{A}$.
@@ -269,7 +273,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem*}
 
 \begin{proof}
-Следует из теорем ???, ???, ??? и того, что $\D(A)$ плотно в $A$.
+Следует из теорем \ref{lim-idfun-eq-empty}, \ref{lim-omega-eq-ai}, \ref{kappa-comp-phi-eq-A} и того, что $\D(A)$ плотно в $A$.
 \end{proof}
 
 \end{document}
