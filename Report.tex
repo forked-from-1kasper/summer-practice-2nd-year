@@ -211,7 +211,12 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{lemma}
 
 \begin{proof}
-  блаблабла
+  Докажем, что $\Lim(A) = \varnothing$. Пусть $r \in \Lim(A)$ и $A = \{ a_0, a_1, ..., a_m \}$.
+
+  Возьмём $E = \mathrm{min} \{ |r - a_i|\ |\ 0 \leq i \leq m \}$ и $\varepsilon = E/2$.
+  Тогда, по определению, существует некоторый $a_i$ такой, что $|r - a_i| < \varepsilon = E/2$ и $r \neq a_i$.
+
+  Однако из задания $E$ следует, что $E \leq |r - a_i| < E/2$, — противоречие
 \end{proof}
 
 \begin{lemma}
