@@ -164,16 +164,6 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   Тогда для всех $n \geq M_\varepsilon$ выполняется $g(n) \geq g(M_\varepsilon) \geq N_\varepsilon$, следовательно $|f(g(n)) - A| \leq \varepsilon$.
 \end{proof}
 
-\begin{theorem}
-  \label{clos-of-finite-set}
-
-  Если $A \subseteq \R$ конечно, то $\overline{A} = A$.
-\end{theorem}
-
-\begin{proof}
-  блаблабла
-\end{proof}
-
 \begin{theorem*}
   Во всяком $A \subseteq \R$ можно выделить не более чем счётное плотное подмножество.
 \end{theorem*}
@@ -207,12 +197,22 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{proof}
 
 \begin{lemma}
+  \label{clos-of-finite-set}
+
+  Если $A \subseteq \R$ конечно, то $\overline{A} = A$.
+\end{lemma}
+
+\begin{proof}
+  блаблабла
+\end{proof}
+
+\begin{lemma}
   \label{D-infinity}
   Если $A$ бесконечно, то $\D(A)$ также бесконечно.
 \end{lemma}
 
 \begin{proof}
-  Действительно, если $\D(A)$ конечно, то в силу теоремы \ref{clos-of-finite-set} имеем $\overline{\D(A)} = \D(A)$,
+  Действительно, если $\D(A)$ конечно, то в силу леммы \ref{clos-of-finite-set} имеем $\overline{\D(A)} = \D(A)$,
   но, с другой стороны, $\overline{\D(A)} = A$. Соединяя, $\D(A) = A$, то есть $A$ конечно.
 
   Контрапозицией получаем необходимое утверждение.
@@ -262,7 +262,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-Из теорем \ref{clos-of-finite-set} и \ref{lim-f-subset-clos-A} следует, что
+Из леммы \ref{clos-of-finite-set} и теоремы \ref{lim-f-subset-clos-A} следует, что
 \begin{equation*}
   \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \}
 \end{equation*}
