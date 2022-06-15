@@ -12,6 +12,8 @@
 \newtheorem*{theorem*}{Теорема}
 \newtheorem{consequence}{Следствие}
 \newtheorem*{consequence*}{Следствие}
+\newtheorem{proposition}{Утверждение}
+\newtheorem*{proposition*}{Утверждение}
 \newtheorem{lemma}{Лемма}
 \newtheorem*{lemma*}{Лемма}
 
@@ -133,29 +135,19 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 
 \section{Некоторые вспомогательные утверждения}
 
-\begin{theorem*}
+Приведём без доказательства несколько известных утверждений.
+
+\begin{proposition*}
   $\N \times \N$ счётно.
-\end{theorem*}
+\end{proposition*}
 
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{theorem*}
+\begin{proposition*}
   $\Q$ счётно.
-\end{theorem*}
+\end{proposition*}
 
-\begin{proof}
-  блаблабла
-\end{proof}
-
-\begin{theorem*}
+\begin{proposition*}
   $\Q$ плотно в $\R$.
-\end{theorem*}
-
-\begin{proof}
-  блаблабла
-\end{proof}
+\end{proposition*}
 
 \begin{theorem}
   \label{subsequence-limit}
@@ -163,7 +155,11 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-  блаблабла
+  Пусть выполнено $\forall \varepsilon > 0: \exists N_\varepsilon \in \N: \forall n \geq N : |f(n) - A| \leq \varepsilon$.
+  Рассмотрим некоторую подпоследовательность $f \circ g$. Зафиксируем $\varepsilon > 0$.
+
+  Пусть $M_\varepsilon = \mathrm{min} \{ m \in \N \ |\ g(m) \geq N_\varepsilon \}$ (оно существует в силу того, что $g$ строго возрастает).
+  Тогда для всех $n \geq M_\varepsilon$ выполняется $g(n) \geq g(M_\varepsilon) \geq N_\varepsilon$, следовательно $|f(g(n)) - A| \leq \varepsilon$.
 \end{proof}
 
 \begin{theorem*}
