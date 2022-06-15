@@ -163,7 +163,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{proof}
 
 \begin{theorem}
-  \label{lim-of-finite-set}
+  \label{clos-of-finite-set}
 
   Если $A \subseteq \R$ конечно, то $\overline{A} = A$.
 \end{theorem}
@@ -177,10 +177,26 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem*}
 
 \begin{proof}
+  Обозначим $B(x, r) = \{ y \in \R \ |\ |x - y| < r \}$.
+
+  Рассмотрим множество $\Delta = \{ (q, r)\ |\ q \in \Q \land r \in \Q \land B(q, r) \cap A \neq \varnothing \} \subseteq \Q \times \Q$.
+
   блаблабла
 \end{proof}
 
-Каждому $A$ сопоставим некоторое счётное плотное подмножество и обозначим его $\D(A)$. По его заданию, очевидно, $\overline{\D(A)} = A$.
+Каждому $A$ сопоставим некоторое не более чем счётное плотное подмножество и обозначим его $\D(A)$. По его заданию, очевидно, $\overline{\D(A)} = A$.
+
+\begin{lemma}
+  \label{D-infinity}
+  Если $A$ бесконечно, то $\D(A)$ также бесконечно.
+\end{lemma}
+
+\begin{proof}
+  Действительно, если $\D(A)$ конечно, то в силу теоремы \ref{clos-of-finite-set} имеем $\overline{\D(A)} = \D(A)$,
+  но, с другой стороны, $\overline{\D(A)} = A$. Соединяя, $\D(A) = A$, то есть $A$ конечно.
+
+  Контрапозицией получаем необходимое утверждение.
+\end{proof}
 
 \begin{theorem}
   \label{lim-f-subset-clos-A}
@@ -226,7 +242,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-Из теорем \ref{lim-of-finite-set} и \ref{lim-f-subset-clos-A} следует, что
+Из теорем \ref{clos-of-finite-set} и \ref{lim-f-subset-clos-A} следует, что
 \begin{equation*}
   \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \}
 \end{equation*}
@@ -319,7 +335,9 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   \end{cases}
 \end{equation*}
 
-Более того, если $A \neq \varnothing$, то, по построению, $c(\N) \subseteq A$.
+$\kappa_{\D(A)}$ в последней строке всегда определено в силу леммы \ref{D-infinity}.
+
+Заметим, что если $A \neq \varnothing$, то, по построению, $c(\N) \subseteq A$.
 
 \begin{theorem*}
   $\Lim(c) = A$
