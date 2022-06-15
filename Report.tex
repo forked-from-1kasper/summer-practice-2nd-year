@@ -136,11 +136,15 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 Приведём без доказательства несколько известных утверждений.
 
 \begin{proposition*}
-  $\N \times \N$ счётно.
+  $\Q$ счётно.
 \end{proposition*}
 
 \begin{proposition*}
-  $\Q$ счётно.
+  Декартово произведение счётных множеств счётно.
+\end{proposition*}
+
+\begin{proposition*}
+  Образ счётного множества не более чем счётен.
 \end{proposition*}
 
 \begin{proposition*}
@@ -177,12 +181,30 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \begin{proof}
   Обозначим $B(x, r) = \{ y \in \R \ |\ |x - y| < r \}$.
 
-  Рассмотрим множество $\Delta = \{ (q, r)\ |\ q \in \Q \land r \in \Q \land B(q, r) \cap A \neq \varnothing \} \subseteq \Q \times \Q$.
+  Рассмотрим множество $\Delta = \{ (q, r)\ |\ q, r \in \Q \land B(q, r) \cap A \neq \varnothing \}$.
+  Заметим, что оно не более чем счётно, поскольку является подмножеством $\Q \times \Q$.
 
-  блаблабла
+  Для каждой пары $(q, r) \in \Delta$ выберем некоторый элемент $\sigma(q, r) \in B(q, r) \cap A$.
+
+  Обозначим $\D(A) = \sigma(\Delta) \subseteq A$. Поскольку $\Delta$ либо конечно, либо счётно, то $\D(A)$ не более чем счётно
+  как образ конечного или счётного множества.
+
+  Докажем сначала, что $\Lim(\D(A)) \subseteq A$. Пусть $r \in \Lim(\D(A))$. ???
+
+  Итак, поскольку $\D(A) \subseteq A$, имеем $\overline{\D(A)} = \D(A) \cup \Lim(\D(A)) \subseteq A$.
+
+  Докажем, что $A \subseteq \overline{\D(A)}$. Пусть $c \in A$. Если $c \in \D(A)$, то утверждение, очевидно, выполнено;
+  поэтому считаем, что $c \notin \D(A)$, и докажем $c \in \Lim(\D(A))$.
+
+  Возьмём произвольное $\varepsilon > 0$. Поскольку $\Q$ плотно в $\R$, существует $q \in \Q$ ($c \neq q$) такое, что $|c - q| < \varepsilon/3$.
+  В силу аксоимы Архимеда существует $r \in \Q$ такое, что $\varepsilon/3 < r < 2\varepsilon/3$.
+  Следовательно, $|c - q| < \varepsilon/3 < r$, то есть $c \in B(q, r)$ и $(q, r) \in \Delta$, потому определено $\sigma(q, r)$.
+
+  Так как $\sigma(q, r) \in B(q, r)$, то $|\sigma(q, r) - q| < r < 2\varepsilon/3$.
+  Соединяя, получаем: $|c - \sigma(q, r)| = |c - q + q - \sigma(q, r)| \leq |c - q| + |\sigma(q, r) - q| < \varepsilon/3 + 2\varepsilon/3 = \varepsilon$.
+
+  Поскольку $\sigma(q, r) \in \D(A)$ и $c \notin \D(A)$, выполнено $c \neq \sigma(q, r)$, что и требовалось.
 \end{proof}
-
-Каждому $A$ сопоставим некоторое не более чем счётное плотное подмножество и обозначим его $\D(A)$. По его заданию, очевидно, $\overline{\D(A)} = A$.
 
 \begin{lemma}
   \label{D-infinity}
