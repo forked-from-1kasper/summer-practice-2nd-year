@@ -112,7 +112,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 
 Будем говорить, что число $A \in \R$ является {\bf пределом последовательности} $f$, если выполняется
 \begin{equation*}
-  \forall \varepsilon > 0: \exists N \in \N: \forall n \geq N : |f(n) - A| \leq \varepsilon
+  \forall \varepsilon > 0: \exists N \in \N: \forall n \geq N : |f(n) - A| < \varepsilon
 \end{equation*}
 
 В этом случае пишут $\limit f(n) = A$.
@@ -157,11 +157,11 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-  Пусть выполнено $\forall \varepsilon > 0: \exists N_\varepsilon \in \N: \forall n \geq N : |f(n) - A| \leq \varepsilon$.
+  Пусть выполнено $\forall \varepsilon > 0: \exists N_\varepsilon \in \N: \forall n \geq N : |f(n) - A| < \varepsilon$.
   Зафиксируем некоторую подпоследовательность $f \circ g$ и $\varepsilon > 0$.
 
   Пусть $M_\varepsilon = \mathrm{min} \{ m \in \N \ |\ g(m) \geq N_\varepsilon \}$ (оно существует в силу того, что $g$ строго возрастает).
-  Тогда для всех $n \geq M_\varepsilon$ выполняется $g(n) \geq g(M_\varepsilon) \geq N_\varepsilon$, следовательно $|f(g(n)) - A| \leq \varepsilon$.
+  Тогда для всех $n \geq M_\varepsilon$ выполняется $g(n) \geq g(M_\varepsilon) \geq N_\varepsilon$, следовательно $|f(g(n)) - A| < \varepsilon$.
 \end{proof}
 
 \begin{lemma}
@@ -237,7 +237,13 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-  блаблабла
+  Возьмём $r \in \Lim(f)$. По определению, существует подпоследовательность $f \circ g$ такая, что $\limit f(g(n)) = r$.
+
+  По определению предела, $\forall \varepsilon > 0: \exists N \in \N: \forall n \geq N : |f(g(n)) - r| < \varepsilon$.
+  Зафиксируем $\varepsilon > 0$ и возьмём $n$ такое, что $f(g(n)) \neq r$.
+
+  Тогда $|r - f(g(n))| < \varepsilon$, $f(g(n)) \in A$ и $f(g(n)) \neq r$, но это означает, что $r$ — предельная точка в $A$.
+  Следовательно, $r \in \Lim(A) \in \overline{A}$.
 \end{proof}
 
 \begin{theorem*}
