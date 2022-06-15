@@ -82,6 +82,7 @@
 \newcommand{\Lim}{\mathrm{Lim}}
 \newcommand{\I}{\mathrm{I}}
 \newcommand{\D}{\mathrm{D}}
+\newcommand{\limit}{\underset{n \rightarrow + \infty}{\lim}}
 
 \section{Основные определения}
 
@@ -94,7 +95,7 @@
 $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \}$) и $\card(X)$ для мощности множества.
 
 Множество {\bf счётно,} если его мощность не превышает мощность множества натуральных чисел $\N$.
-Сопоставим каждому счётному множеству $A$ некоторую биекцию его с $\N$  и обозначим её $\kappa_A : \N \rightarrow A$.
+Сопоставим каждому счётному множеству $A$ некоторую биекцию его с $\N$ и обозначим её $\kappa_A : \N \rightarrow A$.
 
 Точку $x$ множества $A \subseteq \R$ назовём {\bf предельной,} если в любой окрестности этой точки
 существует хотя бы одна точка из $A$, не совпадающая с $x$. Множество всех предельных точек обозначим как $\Lim(A)$.
@@ -114,7 +115,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   \forall \varepsilon > 0: \exists N \in \N: \forall n \geq N : |f(n) - A| \leq \varepsilon
 \end{equation*}
 
-В этом случае пишут $\underset{n \rightarrow + \infty}{\lim} f(n) = A$.
+В этом случае пишут $\limit f(n) = A$.
 
 Последовательность, у которой существует предел, назовём {\bf сходящейся.}
 
@@ -156,9 +157,23 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   блаблабла
 \end{proof}
 
+\begin{theorem}
+  \label{subsequence-limit}
+  Если последовательность сходится, то все её подпоследовательности сходятся к тому же пределу.
+\end{theorem}
+
+\begin{proof}
+  блаблабла
+\end{proof}
+
 \begin{theorem*}
   Всякое $A \subseteq \R$ сепарабельно.
 \end{theorem*}
+
+\begin{proof}
+  блаблабла
+\end{proof}
+
 Каждому $A$ сопоставим некоторое счётное плотное подмножество и обозначим его $\D(A)$. По его заданию, очевидно, $\overline{\D(A)} = A$.
 
 \begin{theorem}
@@ -210,7 +225,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 Докажем $ \{ a_0, a_1, ..., a_m \} \subseteq \Lim(\omega(a_0, a_1, ..., a_m)) $.
 Возьмём некоторое $a_i$, тогда
 \begin{equation*}
-  \underset{n \rightarrow + \infty}{\lim} \omega(n(m + 1) + i) = \underset{n \rightarrow + \infty}{\lim} a_i = a_i
+  \limit \omega(n(m + 1) + i) = \limit a_i = a_i
 \end{equation*}
 Следовательно, $\omega \circ (n \mapsto n(m + 1) + i)$ — искомая подпоследовательность.
 \end{proof}
@@ -231,7 +246,9 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \begin{proof}
 Поскольку $\kappa_A(\phi(n)) \in A$, из теоремы \ref{lim-f-subset-clos-A} получаем, что $\Lim(\kappa_A \circ \phi) \subseteq \overline{A}$.
 
-Обратно, пусть $r \in \overline{A}$. Обозначим $k = \kappa_A^{-1}(r)$. Тогда:
+Обратно, пусть $r \in \overline{A} = A \cup \Lim(A)$.
+
+Если $r \in A$, обозначим $k = \kappa_A^{-1}(r)$. Тогда:
 \begin{align*}
    \ & \kappa_A \circ \phi \circ (n \mapsto k + (n + k)(n + k + 1)/2) \\
   =\ & (n \mapsto \kappa_A(\phi(k + (n + k)(n + k + 1)/2))) \\
@@ -242,15 +259,43 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 Получили постоянную последовательность с пределом $r$.
 
 Пусть $r \in \Lim(A)$. Тогда существует последовательность $g : \N \rightarrow A$, сходящаяся к $r$.
-Обозначим $k_n = \kappa_A^{-1}(g(n))$ и $k^\prime_n = k_0 + k_1 + ... + k_n$. Аналогично получаем:
+Обозначим $k_n = \kappa_A^{-1}(g(n))$ и $k^\prime_n = k_0 + k_1 + ... + k_n$. Заметим, что $k^\prime_n \geq k_n$.
+
+Если $k_n = 0$ для бесконечного числа номеров $n$, то существует строго возрастающая $f : \N \rightarrow \N$
+такая, что $k_{f(n)} = 0$. Но тогда $g(f(n)) = \kappa_A(k_{f(n)}) = \kappa_A(0)$.
+Из теоремы \ref{subsequence-limit} следует, что $r = \kappa_A(0) \in A$, но этот случай сводится к предыдущему.
+
+Пусть теперь $k_n = 0$ лишь для конечного числа номером. Возьмём наибольший такой номер $k$ и обозначим $g^\prime = g \circ (n \mapsto n + k + 1)$.
+Снова из теоремы \ref{subsequence-limit} получаем, что $\limit g^\prime(n) = \limit g(n) = r$.
+
+Пусть также $h = (n \mapsto k_n + k^\prime_n(k^\prime_n + 1)/2) \circ (n \mapsto n + k + 1)$. Докажем сначала, что $h$ строго монотонна.
+
+Действительно, пусть $i = n + k + 1$ для некоторого индекса $n$. Тогда, по заданию $k$, $k_i > 0$ и $k_{i + 1} > 0$. Следовательно:
 \begin{align*}
-   \ & \kappa_A \circ \phi \circ (n \mapsto k_n + k^\prime_n(k^\prime_n + 1)/2) \\
-  =\ & (n \mapsto \kappa_A(\phi(k_n + k^\prime_n(k^\prime_n + 1)/2))) \\
-  =\ & (n \mapsto \kappa_A(k_n)) \\
-  =\ & (n \mapsto \kappa_A(\kappa_A^{-1}(g(n)))) \\
-  =\ & (n \mapsto g(n)) \\
-  =\ & g
+   \ & h(n + 1) \\
+  =\ & k_{i + 1} + k^\prime_{i + 1}(k^\prime_{i + 1} + 1)/2 \\
+  =\ & k_{i + 1} + (k^\prime_i + k_{i + 1})(k^\prime_i + k_{i + 1} + 1)/2 \\
+  =\ & k_{i + 1} + ((k^\prime_i)^2 + 2k^\prime_ik_{i + 1} + k^2_{i + 1} + k^\prime_i + k_{i + 1})/2 \\
+  >\ & k_{i + 1} + ((k^\prime_i)^2 + 2k^\prime_ik_{i + 1} + k^\prime_i)/2 \\
+  =\ & k_{i + 1} + k^\prime_ik_{i + 1} + ((k^\prime_i)^2 + k^\prime_i)/2 \\
+  >\ & k^\prime_i + ((k^\prime_i)^2 + k^\prime_i)/2 \\
+  \geq\ & k_i + ((k^\prime_i)^2 + k^\prime_i)/2 \\
+  =\ & k_i + k^\prime_i(k^\prime_i + 1)/2 \\
+  =\ & h(n)
 \end{align*}
+
+Итак, $\kappa_A \circ \phi \circ h$ — некоторая подпоследовательность. Далее:
+\begin{align*}
+   \ & \kappa_A \circ \phi \circ h \\
+  =\ & \kappa_A \circ \phi \circ (n \mapsto k_n + k^\prime_n(k^\prime_n + 1)/2) \circ (n \mapsto n + k + 1) \\
+  =\ & (n \mapsto \kappa_A(\phi(k_n + k^\prime_n(k^\prime_n + 1)/2))) \circ (n \mapsto n + k + 1) \\
+  =\ & (n \mapsto \kappa_A(k_n)) \circ (n \mapsto n + k + 1) \\
+  =\ & (n \mapsto \kappa_A(\kappa_A^{-1}(g(n)))) \circ (n \mapsto n + k + 1) \\
+  =\ & (n \mapsto g(n)) \circ (n \mapsto n + k + 1) \\
+  =\ & g^\prime
+\end{align*}
+
+Следовательно, $\limit \kappa_A(\phi(h(n))) = \limit g^\prime(n) = \limit g = r$, что и требовалось.
 
 \end{proof}
 
