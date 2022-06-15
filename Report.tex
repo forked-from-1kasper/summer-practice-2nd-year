@@ -162,6 +162,16 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
   Тогда для всех $n \geq M_\varepsilon$ выполняется $g(n) \geq g(M_\varepsilon) \geq N_\varepsilon$, следовательно $|f(g(n)) - A| \leq \varepsilon$.
 \end{proof}
 
+\begin{theorem}
+  \label{lim-of-finite-set}
+
+  Если $A \subseteq \R$ конечно, то $\overline{A} = A$.
+\end{theorem}
+
+\begin{proof}
+  блаблабла
+\end{proof}
+
 \begin{theorem*}
   Всякое $A \subseteq \R$ сепарабельно.
 \end{theorem*}
@@ -216,7 +226,10 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-Из теоремы \ref{lim-f-subset-clos-A} следует $ \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \} $.
+Из теорем \ref{lim-of-finite-set} и \ref{lim-f-subset-clos-A} следует, что
+\begin{equation*}
+  \Lim(\omega(a_0, a_1, ..., a_m)) \subseteq \overline{\{ a_0, a_1, ..., a_m \}} = \{ a_0, a_1, ..., a_m \}
+\end{equation*}
 
 Докажем $ \{ a_0, a_1, ..., a_m \} \subseteq \Lim(\omega(a_0, a_1, ..., a_m)) $.
 Возьмём некоторое $a_i$, тогда
