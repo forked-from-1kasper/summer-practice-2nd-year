@@ -17,6 +17,18 @@
 \newtheorem{lemma}{Лемма}
 \newtheorem*{lemma*}{Лемма}
 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\card}{\mathrm{card}}
+\newcommand{\Int}{\mathrm{Int}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Lim}{\mathrm{Lim}}
+\newcommand{\I}{\mathrm{I}}
+\newcommand{\D}{\mathrm{D}}
+\newcommand{\limit}{\underset{n \rightarrow + \infty}{\lim}}
+
 \begin{document}
 
 \begin{titlepage}
@@ -73,18 +85,6 @@
   Красноярск, 2022
 
 \end{titlepage}
-
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\card}{\mathrm{card}}
-\newcommand{\Int}{\mathrm{Int}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\Lim}{\mathrm{Lim}}
-\newcommand{\I}{\mathrm{I}}
-\newcommand{\D}{\mathrm{D}}
-\newcommand{\limit}{\underset{n \rightarrow + \infty}{\lim}}
 
 \section{Основные определения}
 
@@ -387,7 +387,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 такая, что $k_{f(n)} = 0$. Но тогда $g(f(n)) = \kappa_A(k_{f(n)}) = \kappa_A(0)$.
 Из теоремы \ref{subsequence-limit} следует, что $r = \kappa_A(0) \in A$, но этот случай сводится к предыдущему.
 
-Пусть теперь $k_n = 0$ лишь для конечного числа номером. Возьмём наибольший такой номер $k$ и обозначим $g^\prime = g \circ (n \mapsto n + k + 1)$.
+Пусть теперь $k_n = 0$ лишь для конечного числа номеров. Возьмём наибольший такой номер $k$ и обозначим $g^\prime = g \circ (n \mapsto n + k + 1)$.
 Снова из теоремы \ref{subsequence-limit} получаем, что $\limit g^\prime(n) = \limit g(n) = r$.
 
 Пусть также $h = (n \mapsto k_n + k^\prime_n(k^\prime_n + 1)/2) \circ (n \mapsto n + k + 1)$. Докажем сначала, что $h$ строго монотонна.
