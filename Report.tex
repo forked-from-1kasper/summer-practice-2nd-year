@@ -157,7 +157,7 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-  Пусть выполнено $\forall \varepsilon > 0: \exists N_\varepsilon \in \N: \forall n \geq N : |f(n) - A| < \varepsilon$.
+  Пусть выполнено $\forall \varepsilon > 0: \exists N_\varepsilon \in \N: \forall n \geq N_\varepsilon : |f(n) - A| < \varepsilon$.
   Зафиксируем некоторую подпоследовательность $f \circ g$ и $\varepsilon > 0$.
 
   Пусть $M_\varepsilon = \mathrm{min} \{ m \in \N \ |\ g(m) \geq N_\varepsilon \}$ (оно существует в силу того, что $g$ строго возрастает).
@@ -173,7 +173,19 @@ $f^{-1}(B)$ для прообраза (множества $\{ x\ |\ f(x) \in B \
 \end{theorem}
 
 \begin{proof}
-  блаблабла
+  Зафиксируем некоторое $\varepsilon > 0$.
+  Тогда $\exists N_\varepsilon \in \N: \forall n \geq N_\varepsilon : |f(n) - A| < \varepsilon$
+  и $\exists M_\varepsilon \in \N: \forall n \geq M_\varepsilon : |g(n) - A| < \varepsilon$.
+
+  Обозначим $K_\varepsilon = \mathrm{max} \{ N_\varepsilon, M_\varepsilon \}$ и возьмём некоторое $n \geq K_\varepsilon$.
+  По заданию $K_\varepsilon$, $n \geq K_\varepsilon \geq N_\varepsilon$ и $n \geq K_\varepsilon \geq M_\varepsilon$.
+
+  Известно, что $|h(n) - A| < \varepsilon \Leftrightarrow A - \varepsilon < h(n) < A + \varepsilon$.
+  Поскольку $n \geq N_\varepsilon$ и $n \geq M_\varepsilon$, также верно, что
+  $A - \varepsilon < f(n) < A + \varepsilon$ и $A - \varepsilon < g(n) < A + \varepsilon$.
+
+  Объединяя это с условием $f(n) \leq h(n) \leq g(n)$,
+  получим $A - \varepsilon < f(n) \leq h(n) \leq g(n) < A + \varepsilon$.
 \end{proof}
 
 \begin{lemma}
